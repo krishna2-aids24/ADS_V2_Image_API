@@ -15,7 +15,13 @@ MODEL_PATH = os.path.join(
     "ADS_V2_Image_Model",
     "dog_disease_model.h5"
 )
-model = load_model(MODEL_PATH)
+model = None
+
+def get_model():
+    global model
+    if model is None:
+        model = load_model(MODEL_PATH)
+    return model
 
 
 # Class labels must match training order
